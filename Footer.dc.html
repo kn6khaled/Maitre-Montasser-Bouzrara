@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+</style>
+</helmet>
+<footer style="background:#132038;color:#C3CAD6;font-family:'Source Sans 3',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;padding:72px 32px 40px;">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:48px;">
+      <div>
+        <div style="font-family:'Lora',serif;font-size:22px;font-weight:700;color:#F7F4EE;letter-spacing:0.02em;">{{ nameMark }}</div>
+        <div style="font-size:10.5px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#B08D57;margin-top:6px;">{{ roleMark }}</div>
+        <p style="font-size:13.5px;line-height:1.75;color:#9DA6B4;margin:20px 0 0;max-width:280px;">{{ tagline }}</p>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#8791A0;margin-bottom:18px;">{{ navHeading }}</div>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+            <a href="{{ n.href }}" style="color:#C3CAD6;text-decoration:none;font-size:14px;" style-hover="color:#B08D57;">{{ n.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#8791A0;margin-bottom:18px;">{{ cabinetHeading }}</div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:#C3CAD6;">
+          <span>{{ addr1 }}</span>
+          <span>{{ addr2 }}</span>
+          <span>+216 98 371 197</span>
+          <span>montassar_bouzrara@yahoo.fr</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#8791A0;margin-bottom:18px;">{{ newsHeading }}</div>
+        <p style="font-size:13.5px;line-height:1.7;color:#9DA6B4;margin:0 0 16px;">{{ newsBody }}</p>
+        <form onSubmit="{{ onSubmit }}" style="display:flex;border:1px solid #33415C;">
+          <input type="email" required placeholder="{{ newsPlaceholder }}" style="flex:1;min-width:0;background:transparent;border:none;outline:none;color:#F7F4EE;font-family:inherit;font-size:13px;padding:12px 14px;" />
+          <button type="submit" style="background:#B08D57;border:none;color:#132038;font-family:inherit;font-weight:600;font-size:13px;padding:0 18px;cursor:pointer;letter-spacing:0.04em;">{{ newsBtn }}</button>
+        </form>
+        <div style="font-size:12px;color:#7A8494;margin-top:10px;min-height:16px;">{{ notice }}</div>
+      </div>
+    </div>
+    <div style="height:1px;background:#26324a;margin:48px 0 28px;"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;">
+      <div style="font-size:12.5px;color:#7A8494;line-height:1.6;">{{ copyright }}</div>
+      <div style="display:flex;gap:10px;">
+        <a href="#" aria-label="LinkedIn" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #33415C;color:#C3CAD6;text-decoration:none;font-size:12.5px;font-weight:600;" style-hover="border-color:#B08D57;color:#B08D57;">in</a>
+        <a href="mailto:montassar_bouzrara@yahoo.fr" aria-label="E-mail" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #33415C;color:#C3CAD6;text-decoration:none;font-size:12.5px;font-weight:600;" style-hover="border-color:#B08D57;color:#B08D57;">@</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:360}}">
+const T = {
+  FR: { role: "Avocat · Barreau de Tunis",
+    tagline: "Conseil et contentieux au service des entreprises et des particuliers. Rigueur, discrétion et efficacité.",
+    navHeading: "Navigation", cabinetHeading: "Cabinet", addr2: "Résidence Montazah, El Manar 3, Tunis",
+    newsHeading: "Actualités juridiques", newsBody: "Recevez ponctuellement nos analyses et brèves juridiques.",
+    newsPlaceholder: "Votre adresse e-mail", newsBtn: "OK", ok: "Merci — inscription enregistrée.",
+    copyright: "© {y} Maître Montassar Bouzrara — Tous droits réservés.",
+    nav: ["Accueil", "À propos", "Domaines d'intervention", "Affaires marquantes", "Contact"] },
+  EN: { role: "At the Tunis Bar Association",
+    tagline: "Advisory and litigation for businesses and individuals. Rigor, discretion and efficiency.",
+    navHeading: "Navigation", cabinetHeading: "Office", addr2: "Résidence Montazah, El Manar 3, Tunis",
+    newsHeading: "Legal Updates", newsBody: "Receive our occasional legal analyses and briefs.",
+    newsPlaceholder: "Your email address", newsBtn: "OK", ok: "Thank you — you're subscribed.",
+    copyright: "© {y} Attorney Montassar Bouzrara — All rights reserved.",
+    nav: ["Home", "About", "Practice Areas", "Notable Matters", "Contact"] },
+};
+const NAME = { FR: "Maître Montassar Bouzrara", EN: "Attorney Montassar Bouzrara" };
+class Component extends DCLogic {
+  state = { lang: (typeof localStorage !== "undefined" && localStorage.getItem("site_lang")) || "EN", notice: "" };
+  componentDidMount() {
+    this._onLang = (e) => this.setState({ lang: e.detail, notice: "" });
+    window.addEventListener("site-langchange", this._onLang);
+  }
+  componentWillUnmount() { window.removeEventListener("site-langchange", this._onLang); }
+  renderVals() {
+    const lang = this.state.lang;
+    const t = T[lang] || T.EN;
+    const hrefs = ["index.html", "APropos.dc.html", "Domaines.dc.html", "Affaires.dc.html", "Contact.dc.html"];
+    const navItems = t.nav.map((label, i) => ({ label, href: hrefs[i] }));
+    return {
+      nameMark: NAME[lang] || NAME.EN, roleMark: t.role, tagline: t.tagline,
+      navHeading: t.navHeading, cabinetHeading: t.cabinetHeading, newsHeading: t.newsHeading,
+      newsBody: t.newsBody, newsPlaceholder: t.newsPlaceholder, newsBtn: t.newsBtn,
+      addr1: "N° 37 bis, rue Ali Zouleitni", addr2: t.addr2, navItems,
+      copyright: t.copyright.replace("{y}", new Date().getFullYear()),
+      notice: this.state.notice,
+      onSubmit: (e) => { e.preventDefault(); this.setState({ notice: t.ok }); e.target.reset(); },
+    };
+  }
+}
+</script>
+</body>
+</html>
